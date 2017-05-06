@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <app-title></app-title>
-    <progress-bar></progress-bar>
-    <quote-input></quote-input>
-    <quotes-list></quotes-list>
+    <progress-bar :quotes="quotes" :max="max"></progress-bar>
+    <quote-input :quotes="quotes" :max="max"></quote-input>
+    <quotes-list :quotes="quotes"></quotes-list>
     <info></info>
   </div>
 </template>
@@ -16,6 +16,12 @@
   import Info from './components/Info.vue';
 
   export default {
+    data() {
+      return {
+        quotes: [],
+        max: 10
+      }
+    },
     components: {
       appTitle: AppTitle,
       progressBar: ProgressBar,
