@@ -14,6 +14,7 @@
   import QuoteInput from './components/QuoteInput.vue';
   import QuotesList from './components/QuotesList.vue';
   import Info from './components/Info.vue';
+  import {bus} from './main.js';
 
   export default {
     data() {
@@ -28,9 +29,11 @@
       quoteInput: QuoteInput,
       quotesList: QuotesList,
       info: Info,
+    },
+    created() {
+      bus.$on('deleteQuote', function (index) {
+        this.quotes.splice(index, 1);
+      }.bind(this));
     }
   }
 </script>
-
-<style>
-</style>

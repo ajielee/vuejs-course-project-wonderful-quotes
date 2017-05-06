@@ -1,44 +1,27 @@
 <template>
-  <div class="row" style="margin-top: 20px;">
-
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="panel panel-default">
-        <div class="panel-body quote" style="font-family: 'Arizonia'; font-size: 25px;">
-          Vestibulum id ligula porta felis euismod semper.
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="panel panel-default">
-        <div class="panel-body quote" style="font-family: 'Arizonia'; font-size: 25px;">
-          Vestibulum id ligula porta felis euismod semper.
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="panel panel-default">
-        <div class="panel-body quote" style="font-family: 'Arizonia'; font-size: 25px;">
-          Vestibulum id ligula porta felis euismod semper.
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="panel panel-default">
-        <div class="panel-body quote" style="font-family: 'Arizonia'; font-size: 25px;">
-          Vestibulum id ligula porta felis euismod semper.
-        </div>
-      </div>
-    </div>
+  <div class="row">
+    <quote v-for="(quote, index) in quotes" :quote="quote" :index="index"></quote>
   </div>
 </template>
 
 <script>
-  export default {}
+  import Quote from './Quote.vue';
+
+  export default {
+    props: {
+      quotes: {
+        type: Array,
+        required: true
+      }
+    },
+    components: {
+      quote: Quote
+    }
+  }
 </script>
 
-<style>
-
+<style scoped>
+  .row {
+    margin-top: 20px;
+  }
 </style>
